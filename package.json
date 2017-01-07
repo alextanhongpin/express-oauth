@@ -1,10 +1,9 @@
 {
-  "name": "authorization-code-grant-flow",
+  "name": "express-oauth",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "JWT_SECRET=shhhhhh NODE_ENV=test mocha test/**/*.js"
   },
   "author": "",
   "license": "ISC",
