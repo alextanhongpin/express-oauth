@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin</title>
+</head>
+<body>
+
+<h1>View all your registered devices</h1>
+
+
+<table>
+	<thead>
+		<tr>
+			<td>Id</td>
+			<td>UserAgent</td>
+			<td>Access Token</td>
+			<td>Refresh Token</td>
+		</tr>
+	</thead>
+	<tbody>
+		<% for (var i = 0; i < devices.length; i += 1) { %>
+
+			<% var device = devices[i] %>
+
+			<tr>
+				<td><%= device._id %></td>
+				<td><%= device.useragent %></td>
+				<td><%= device.access_token %></td>
+				<td><%= device.refresh_token %></td>
+			</tr>
+		<% } %>
+	</tbody>
+</table>
+
+</body>
+</html>

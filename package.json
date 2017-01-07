@@ -1,0 +1,33 @@
+{
+  "name": "authorization-code-grant-flow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "JWT_SECRET=shhhhhh NODE_ENV=test mocha test/**/*.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.15.2",
+    "ejs": "^2.5.5",
+    "email-validator": "^1.0.7",
+    "http-status-codes": "^1.0.6",
+    "jsonwebtoken": "^7.2.1",
+    "mongoose": "^4.7.4",
+    "morgan": "^1.7.0",
+    "nodemon": "^1.11.0",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
+    "passport-local": "^1.0.0",
+    "request": "^2.79.0",
+    "useragent": "^2.1.10"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.2.0",
+    "superagent": "^3.3.1"
+  }
+}

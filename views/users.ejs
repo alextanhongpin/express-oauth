@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin</title>
+</head>
+<body>
+
+<h1>View all your registered users</h1>
+
+
+<table>
+	<thead>
+		<tr>
+			<td>UserId</td>
+			<td>Email</td>
+			<td>Created At</td>
+			<td>Modified At</td>
+		</tr>
+	</thead>
+	<tbody>
+		<% for (var i = 0; i < users.length; i += 1) { %>
+
+			<% var user = users[i] %>
+
+			<tr>
+				<td><%= user._id %></td>
+				<td><%= user.email %></td>
+				<td><%= user.created_at %></td>
+				<td><%= user.modified_at %></td>
+			</tr>
+		<% } %>
+	</tbody>
+</table>
+
+</body>
+</html>

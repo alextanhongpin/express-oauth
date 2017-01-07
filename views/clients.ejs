@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Developer Portal</title>
+</head>
+<body>
+
+<a href='/clients/register'>Register Client Here</a>
+<h1>View all your registered applications</h1>
+
+
+<table>
+	<thead>
+		<tr>
+			<td>App Name</td>
+			<td>ClientId</td>
+			<td>ClientSecret</td>
+			<td>Created At</td>
+		</tr>
+	</thead>
+	<tbody>
+		<% for (var i = 0; i < clients.length; i += 1) { %>
+
+			<% var client = clients[i] %>
+
+			<tr data-id="<%=client._id%>">
+				<td><%= client.client_name %></td>
+				<td><%= client.client_secret %></td>
+				<td><%= client.client_id %></td>
+				<td><%= client.created_at %></td>
+				<td><%= client.modified_at %></td>
+				<td><button class='delete' data-id="<%=client._id%>">Delete</button></td>
+				<td><a href="/clients/<%=client._id%>/edit">Edit</a></td>
+			</tr>
+		<% } %>
+	</tbody>
+</table>
+
+<script>
+
+
+const buttons = document.querySelectorAll('.delete')
+buttons.forEach((button) => {
+	button.addEventListener('click', (evt) => {
+		const id = evt.currentTarget.dataset.id
+		fetch('/clients/' + id, {
+			method: 'delete'
+		}).then((res) => {
+			document.querySelector('tr[data-id="' + id + '"]').remove()
+		})
+	}, false)
+})
+
+</script>
+</body>
+</html>

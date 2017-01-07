@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+</head>
+<body>
+
+<a href="/clients">< Back to Clients</a>
+
+<h1>Update <%=client.client_name%></h1>
+
+<form>
+	<p><label>Name</label></p>
+	<p><input type="text" name="client_name" value="<%= client.client_name%>"></p>
+	<p>This is the name of your application</p>
+
+	<p><label>Logo</label></p>
+	<p><input type="text" name="logo_uri" value="<%=client.logo_uri%>"></p>
+	<p>The URI for your app logo</p>
+
+	<p><label>Callback URL</label></p>
+	<p><input type="text" name="redirect_uris" value="<%=client.redirect_uris.join(',')%>"></p>
+	<p>A list of comma separated urls that can access this feature.</p>
+
+	<button id="submit" data-id='<%=client._id%>'>OK</button>
+</form>
+
+<script type="text/javascript">
+	
+const submit = document.getElementById('submit')
+
+submit.addEventListener('click', (evt) => {
+	evt.preventDefault()
+
+	const _id = evt.currentTarget.dataset.id
+	const client_name = document.querySelector('input[name=client_name]').value
+	const logo_uri = document.querySelector('input[name=logo_uri]').value
+	const redirect_uris = document.querySelector('input[name=redirect_uris]').value
+
+	fetch('/clients/' + _id, {
+		method: 'PUT',
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json;charset=utf-8'
+		},
+		body: JSON.stringify({
+			client_name,
+			logo_uri,
+			redirect_uris,
+			_id
+		})
+	}).then((res) => {
+		console.log('success', res)
+		window.alert('Successfull updated')
+	})
+	return false
+}, false)
+</script>
+</body>
+</html>

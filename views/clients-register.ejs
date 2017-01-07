@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+</head>
+<body>
+
+<a href="/clients">< Back to Clients</a>
+<h1>Client Registration According to RFC7592</h1>
+
+<form method="POST" action="/clients/register">
+	<p><label>Name</label></p>
+	<p><input type="text" name="client_name"></p>
+	<p>This is the name of your application</p>
+
+	<p><label>Logo</label></p>
+	<p><input type="text" name="logo_uri"></p>
+	<p>The URI for your app logo</p>
+
+	<p><label>Callback URL</label></p>
+	<p><input type="text" name="callback_uris"></p>
+	<p>A list of comma separated urls that can access this feature.</p>
+
+	<button>OK</button>
+</form>
+</body>
+</html>

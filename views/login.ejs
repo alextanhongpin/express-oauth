@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+</head>
+<body>
+
+<h1>Login</h1>
+
+<form method="POST" action="/login">
+	<p><label>Email</label></p>
+	<p><input type="email" name="email"></p>
+
+	<p><label>Password</label></p>
+	<p><input type="password" name="password"></p>
+
+	<button id="submit">OK</button>
+</form>
+<script type="text/javascript" src='guard.js'></script>
+<script type="text/javascript" src='service.js'></script>
+<script type="text/javascript">
+	(function () {
+		'use strict'
+
+		const submit = document.getElementById('submit')
+		submit.addEventListener('click', (evt) => {
+			evt.preventDefault()
+
+			const email = document.querySelector('input[name=email]').value
+			const password = document.querySelector('input[name=password]').value
+
+			service.login(email, password).then((data) => {
+				window.localStorage.access_token = data.access_token
+				window.localStorage.refresh_token = data.refresh_token
+				// Carry out redirection
+				window.location.href = '/home'
+			})
+		}, false)
+	})()
+</script>
+</body>
+</html>
